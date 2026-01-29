@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if current_language == 'ta' %}பயிர் பரிந்துரை - மண் ஆரோக்கியம்{% else %}Crop Recommendation - Soil Health{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="farming-card">
+            <div class="card-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-leaf me-2"></i>
+                    {% if current_language == 'ta' %}பயிர் பரிந்துரை அமைப்பு{% else %}Crop Recommendation System{% endif %}
+                </h4>
+                <p class="mb-0 small opacity-75">
+                    {% if current_language == 'ta' %}உங்கள் தரவுகளை உள்ளிட்டு சிறந்த பயிரைப் பெறுங்கள்{% else %}Enter your data to get best crop{% endif %}
+                </p>
+            </div>
+            
+            <div class="card-body p-4">
+                <form id="cropForm">
+                    <div class="row g-3">
+                        <!-- Nitrogen -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-atom text-danger me-1"></i>
+                                {% if current_language == 'ta' %}நைட்ரஜன் (N) – kg/ha{% else %}Nitrogen (N) – kg/ha{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="nitrogen"
+                                   placeholder="{% if current_language == 'ta' %}எ.கா., 90{% else %}e.g., 90{% endif %}"
+                                   step="1" required>
+                        </div>
+
+                        <!-- Phosphorus -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-fire text-warning me-1"></i>
+                                {% if current_language == 'ta' %}பாஸ்பரஸ் (P) – kg/ha{% else %}Phosphorus (P) – kg/ha{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="phosphorus"
+                                   placeholder="{% if current_language == 'ta' %}எ.கா., 42{% else %}e.g., 42{% endif %}"
+                                   step="1" required>
+                        </div>
+
+                        <!-- Potassium -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-bolt text-success me-1"></i>
+                                {% if current_language == 'ta' %}பொட்டாசியம் (K) – kg/ha{% else %}Potassium (K) – kg/ha{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="potassium"
+                                   placeholder="{% if current_language == 'ta' %}எ.கா., 43{% else %}e.g., 43{% endif %}"
+                                   step="1" required>
+                        </div>
+
+                        <!-- Temperature -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-thermometer-half text-danger me-1"></i>
+                                {% if current_language == 'ta' %}வெப்பநிலை (°C){% else %}Temperature (°C){% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="temperature"
+                                   placeholder="{% if current_language == 'ta' %}எ.கா., 25{% else %}e.g., 25{% endif %}"
+                                   step="0.1" required>
+                        </div>
+
+                        <!-- Humidity -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-tint text-primary me-1"></i>
+                                {% if current_language == 'ta' %}ஈரப்பதம் (%){% else %}Humidity (%){% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="humidity"
+                                   placeholder="{% if current_language == 'ta' %}எ.கா., 60{% else %}e.g., 60{% endif %}"
+                                   step="0.1" required>
+                        </div>
+
+                        <!-- pH -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-vial text-info me-1"></i>
+                                {% if current_language == 'ta' %}மண் pH{% else %}Soil pH{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="ph"
+                                   placeholder="{% if current_language == 'ta' %}எ.கா., 6.5{% else %}e.g., 6.5{% endif %}"
+                                   step="0.1" required>
+                        </div>
+
+                        <!-- Rainfall -->
+                        <div class="col-md-12">
+                            <label class="form-label">
+                                <i class="fas fa-cloud-rain text-info me-1"></i>
+                                {% if current_language == 'ta' %}மழைப்பொழிவு (மிமீ){% else %}Rainfall (mm){% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="rainfall"
+                                   placeholder="{% if current_language == 'ta' %}எ.கா., 200{% else %}e.g., 200{% endif %}"
+                                   step="0.1" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="d-flex justify-content-between">
+                            <a href="/" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-1"></i> 
+                                {% if current_language == 'ta' %}பின்வாடு{% else %}Back{% endif %}
+                            </a>
+                            <button type="submit" class="btn btn-green px-5" id="recommendBtn">
+                                <i class="fas fa-seedling me-2"></i> 
+                                {% if current_language == 'ta' %}பயிர் பரிந்துரை{% else %}Get Recommendation{% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Loading Indicator -->
+                <div id="loadingIndicator" class="text-center mt-4" style="display: none;">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2 text-muted">
+                        {% if current_language == 'ta' %}பரிந்துரை செய்கிறது...{% else %}Generating recommendation...{% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Available Crops -->
+        <div class="farming-card mt-4 p-4">
+            <h5 class="mb-3">
+                <i class="fas fa-crop-alt text-success me-2"></i>
+                {% if current_language == 'ta' %}கிடைக்கும் பயிர்கள்{% else %}Available Crops{% endif %}
+            </h5>
+            <div class="row g-2">
+                {% set crops = ["Rice", "Wheat", "Maize", "Cotton", "Sugarcane", "Groundnut", 
+                                "Sunflower", "Potato", "Tomato", "Onion", "Chilli", "Coffee", 
+                                "Tea", "Rubber", "Coconut", "Banana", "Mango", "Grapes", 
+                                "Orange", "Apple", "Pomegranate", "Papaya"] %}
+                {% for crop in crops %}
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="crop-item p-2 border rounded text-center mb-2">
+                        <i class="fas fa-leaf text-success mb-1"></i>
+                        <small>{{ crop }}</small>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('cropForm');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const recommendBtn = document.getElementById('recommendBtn');
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading
+        loadingIndicator.style.display = 'block';
+        recommendBtn.disabled = true;
+        recommendBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> {% if current_language == "ta" %}பரிந்துரை செய்கிறது...{% else %}Processing...{% endif %}';
+        
+        // Collect form data
+        const formData = new FormData(form);
+        const data = {};
+        for (let [key, value] of formData.entries()) {
+            if (value) {
+                data[key] = parseFloat(value);
+            }
+        }
+        
+        try {
+            // Send to API
+            const response = await fetch('/api/predict/crop', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                // Redirect to results page
+                window.location.href = '/results';
+            } else {
+                alert(result.error || '{% if current_language == "ta" %}பிழை ஏற்பட்டது{% else %}Error occurred{% endif %}');
+                loadingIndicator.style.display = 'none';
+                recommendBtn.disabled = false;
+                recommendBtn.innerHTML = '<i class="fas fa-seedling me-2"></i> {% if current_language == "ta" %}பயிர் பரிந்துரை{% else %}Get Recommendation{% endif %}';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('{% if current_language == "ta" %}இணைப்பு பிழை{% else %}Connection error{% endif %}');
+            loadingIndicator.style.display = 'none';
+            recommendBtn.disabled = false;
+            recommendBtn.innerHTML = '<i class="fas fa-seedling me-2"></i> {% if current_language == "ta" %}பயிர் பரிந்துரை{% else %}Get Recommendation{% endif %}';
+        }
+    });
+});
+</script>
+{% endblock %}

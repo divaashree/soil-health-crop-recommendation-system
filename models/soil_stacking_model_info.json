@@ -1,0 +1,76 @@
+{
+  "model_type": "StackingClassifier",
+  "base_estimators": [
+    {
+      "name": "rf1",
+      "type": "RandomForestClassifier",
+      "n_estimators": 100
+    },
+    {
+      "name": "rf2",
+      "type": "RandomForestClassifier",
+      "n_estimators": 200
+    },
+    {
+      "name": "gb",
+      "type": "GradientBoostingClassifier",
+      "n_estimators": 150
+    }
+  ],
+  "final_estimator": {
+    "type": "RandomForestClassifier",
+    "n_estimators": 100
+  },
+  "performance_metrics": {
+    "train_accuracy": 0.9815533980582525,
+    "test_accuracy": 0.9457364341085271,
+    "cv_mean_accuracy": 0.958252427184466,
+    "cv_std_accuracy": 0.009995757418433978,
+    "precision": 0.9459799927093717,
+    "recall": 0.9457364341085271,
+    "f1_score": 0.9458363628000583
+  },
+  "training_details": {
+    "training_date": "2026-01-10 11:22:04",
+    "train_samples": 1030,
+    "test_samples": 258,
+    "features_count": 20,
+    "classes_count": 3,
+    "classes": [
+      0,
+      1,
+      2
+    ],
+    "feature_names": [
+      "N",
+      "P",
+      "K",
+      "ph",
+      "ec",
+      "oc",
+      "S",
+      "zn",
+      "fe",
+      "cu",
+      "Mn",
+      "B",
+      "N_squared",
+      "P_squared",
+      "K_squared",
+      "N_P_ratio",
+      "K_N_ratio",
+      "nutrient_balance",
+      "N_bin",
+      "P_bin"
+    ],
+    "feature_engineering_applied": true,
+    "original_features_count": 12,
+    "engineered_features_count": 8
+  },
+  "model_parameters": {
+    "cv_folds": 5,
+    "random_state": 42,
+    "passthrough": false,
+    "class_weight_strategy": "balanced"
+  }
+}

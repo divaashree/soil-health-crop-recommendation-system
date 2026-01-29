@@ -1,0 +1,350 @@
+/* Tamil Farming Theme - Clean & Authentic */
+
+:root {
+    --earth-brown: #8B4513;
+    --paddy-green: #2E8B57;
+    --harvest-gold: #DAA520;
+    --soil-dark: #654321;
+    --sky-blue: #87CEEB;
+    --white-smoke: #F5F5F5;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Tamil headings */
+.tamil-heading {
+    font-family: 'Noto Serif Tamil', serif;
+    color: var(--soil-dark);
+    font-weight: 600;
+}
+
+/* Navbar styling */
+.navbar {
+    border-bottom: 3px solid var(--paddy-green);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    color: var(--soil-dark) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #555 !important;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem !important;
+    border-radius: 5px;
+    margin: 0 2px;
+}
+
+.nav-link:hover {
+    color: var(--paddy-green) !important;
+    background: rgba(46, 139, 87, 0.1);
+}
+
+.nav-link.active {
+    color: var(--paddy-green) !important;
+    font-weight: 600;
+}
+
+/* Cards - Earthy theme */
+.farming-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: white;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.farming-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--paddy-green) 0%, #26734d 100%);
+    color: white;
+    border-bottom: none;
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+}
+
+/* Buttons */
+.btn-green {
+    background: linear-gradient(135deg, var(--paddy-green) 0%, #2E7D57 100%);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.btn-green:hover {
+    background: linear-gradient(135deg, #26734d 0%, var(--paddy-green) 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 139, 87, 0.3);
+}
+
+.btn-outline-earth {
+    border: 2px solid var(--earth-brown);
+    color: var(--earth-brown);
+    background: transparent;
+    transition: all 0.3s;
+    padding: 10px 24px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.btn-outline-earth:hover {
+    background-color: var(--earth-brown);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Form styling */
+.form-control {
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 16px;
+    transition: all 0.3s;
+    font-size: 15px;
+}
+
+.form-control:focus {
+    border-color: var(--paddy-green);
+    box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.form-select {
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 16px;
+    transition: all 0.3s;
+}
+
+.form-select:focus {
+    border-color: var(--paddy-green);
+    box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('/static/images/soil-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 50px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section .lead {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* Feature icons */
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(46, 139, 87, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--paddy-green);
+    font-size: 28px;
+}
+
+/* Soil health indicators */
+.health-poor {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.health-fair {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.health-good {
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Crop card */
+.crop-card {
+    border-left: 5px solid var(--paddy-green);
+    padding-left: 20px;
+    margin-bottom: 20px;
+    background: rgba(46, 139, 87, 0.03);
+}
+
+/* Step numbers */
+.step-number {
+    width: 60px;
+    height: 60px;
+    background-color: var(--paddy-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    border-top: 3px solid var(--paddy-green);
+    margin-top: auto;
+}
+
+footer h5, footer h6 {
+    color: var(--soil-dark);
+    font-weight: 600;
+}
+
+footer a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--paddy-green);
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+        border-radius: 0 0 25px 25px;
+        margin-bottom: 30px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .navbar-brand small {
+        display: none !important;
+    }
+    
+    .btn-green {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.2rem;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--paddy-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #26734d;
+}
+
+/* Utility classes */
+.text-brown {
+    color: var(--earth-brown) !important;
+}
+
+.bg-light-green {
+    background-color: rgba(46, 139, 87, 0.05) !important;
+}
+
+/* Fade animation */
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remove number input spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+

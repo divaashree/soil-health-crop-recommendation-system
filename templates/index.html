@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if current_language == 'ta' %}மண் ஆரோக்கியம் - முகப்பு{% else %}Soil Health Analytics - Home{% endif %}
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold mb-3">
+            {% if current_language == 'ta' %}
+            விவசாயத்தில் விஞ்ஞானம்
+            {% else %}
+            Science in Agriculture
+            {% endif %}
+        </h1>
+        <p class="lead mb-4">
+            {% if current_language == 'ta' %}
+            AI-அடிப்படையிலான மண் பகுப்பாய்வு மற்றும் பயிர் பரிந்துரை
+            {% else %}
+            AI-powered soil analysis and crop recommendation
+            {% endif %}
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="/soil-analysis" class="btn btn-green btn-lg px-4">
+                <i class="fas fa-flask me-2"></i> 
+                {% if current_language == 'ta' %}மண் பரிசோதனை{% else %}Soil Test{% endif %}
+            </a>
+            <a href="/crop-recommendation" class="btn btn-outline-light btn-lg px-4">
+                <i class="fas fa-leaf me-2"></i> 
+                {% if current_language == 'ta' %}பயிர் பரிந்துரை{% else %}Crop Recommendation{% endif %}
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="tamil-heading mb-3">
+            {% if current_language == 'ta' %}எங்கள் சேவைகள்{% else %}Our Services{% endif %}
+        </h2>
+        <p class="text-muted">
+            {% if current_language == 'ta' %}விவசாயிகளுக்கான முழுமையான தீர்வுகள்{% else %}Complete solutions for farmers{% endif %}
+        </p>
+    </div>
+    
+    <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-4">
+            <div class="farming-card h-100 p-4 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h5 class="mb-3">
+                    {% if current_language == 'ta' %}மண் ஆரோக்கிய பகுப்பாய்வு{% else %}Soil Health Analysis{% endif %}
+                </h5>
+                <p class="text-muted small">
+                    {% if current_language == 'ta' %}
+                    12 மண் அளவுருக்களின் அடிப்படையில் AI மாதிரியைப் பயன்படுத்தி மண் ஆரோக்கியத்தை மதிப்பிடுங்கள்
+                    {% else %}
+                    Evaluate soil health using AI model based on 12 soil parameters
+                    {% endif %}
+                </p>
+                <a href="/soil-analysis" class="btn btn-outline-earth btn-sm mt-3">
+                    {% if current_language == 'ta' %}தொடங்கு{% else %}Start Now{% endif %}
+                </a>
+            </div>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="col-md-4">
+            <div class="farming-card h-100 p-4 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h5 class="mb-3">
+                    {% if current_language == 'ta' %}பயிர் பரிந்துரை{% else %}Crop Recommendation{% endif %}
+                </h5>
+                <p class="text-muted small">
+                    {% if current_language == 'ta' %}
+                    உங்கள் மண் மற்றும் காலநிலை நிலைமைகளுக்கு ஏற்ற பயிர்களைப் பெறுங்கள்
+                    {% else %}
+                    Get suitable crops for your soil and climate conditions
+                    {% endif %}
+                </p>
+                <a href="/crop-recommendation" class="btn btn-outline-earth btn-sm mt-3">
+                    {% if current_language == 'ta' %}தொடங்கு{% else %}Start Now{% endif %}
+                </a>
+            </div>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="col-md-4">
+            <div class="farming-card h-100 p-4 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h5 class="mb-3">
+                    {% if current_language == 'ta' %}உரம் அறிவுறுத்தல்{% else %}Fertilizer Guide{% endif %}
+                </h5>
+                <p class="text-muted small">
+                    {% if current_language == 'ta' %}
+                    உங்கள் மண்ணுக்கு ஏற்ற உரங்கள் மற்றும் பயன்பாட்டு முறைகள்
+                    {% else %}
+                    Suitable fertilizers and application methods for your soil
+                    {% endif %}
+                </p>
+                <a href="/fertilizer-advice" class="btn btn-outline-earth btn-sm mt-3">
+                    {% if current_language == 'ta' %}தொடங்கு{% else %}Start Now{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How it Works -->
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="tamil-heading mb-3">
+                {% if current_language == 'ta' %}எப்படி வேலை செய்கிறது?{% else %}How it Works{% endif %}
+            </h2>
+        </div>
+        
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-number mb-3">1</div>
+                <h6>
+                    {% if current_language == 'ta' %}தரவை உள்ளிடவும்{% else %}Enter Data{% endif %}
+                </h6>
+                <p class="small">
+                    {% if current_language == 'ta' %}
+                    உங்கள் மண் அளவுருக்கள் அல்லது பயிர் தரவுகளை உள்ளிடவும்
+                    {% else %}
+                    Input your soil parameters or crop data
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-number mb-3">2</div>
+                <h6>
+                    {% if current_language == 'ta' %}AI பகுப்பாய்வு{% else %}AI Analysis{% endif %}
+                </h6>
+                <p class="small">
+                    {% if current_language == 'ta' %}
+                    எங்கள் AI மாதிரிகள் தரவை பகுப்பாய்வு செய்கின்றன
+                    {% else %}
+                    Our AI models analyze the data
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-number mb-3">3</div>
+                <h6>
+                    {% if current_language == 'ta' %}முடிவுகளைப் பெறுங்கள்{% else %}Get Results{% endif %}
+                </h6>
+                <p class="small">
+                    {% if current_language == 'ta' %}
+                    விரிவான பரிந்துரைகள் மற்றும் ஆலோசனைகள்
+                    {% else %}
+                    Detailed recommendations and advice
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accuracy Stats -->
+<div class="container py-5">
+    <div class="farming-card p-4">
+        <div class="row text-center">
+            <div class="col-md-6 border-end">
+                <h3 class="text-success mb-2">96.5%</h3>
+                <p class="mb-1 fw-semibold">
+                    {% if current_language == 'ta' %}மண் ஆரோக்கிய பகுப்பாய்வு{% else %}Soil Health Analysis{% endif %}
+                </p>
+                <small class="text-muted">
+                    {% if current_language == 'ta' %}துல்லியம்{% else %}Accuracy{% endif %}
+                </small>
+            </div>
+            <div class="col-md-6">
+                <h3 class="text-success mb-2">99%</h3>
+                <p class="mb-1 fw-semibold">
+                    {% if current_language == 'ta' %}பயிர் பரிந்துரை{% else %}Crop Recommendation{% endif %}
+                </p>
+                <small class="text-muted">
+                    {% if current_language == 'ta' %}துல்லியம்{% else %}Accuracy{% endif %}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.hero-section {
+    background: linear-gradient(rgba(46, 139, 87, 0.9), rgba(46, 139, 87, 0.7)),
+                url('https://images.unsplash.com/photo-1592982537447-7444dc31f8e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 50px;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--paddy-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(46, 139, 87, 0.1);
+    color: var(--paddy-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto;
+}
+</style>
+{% endblock %}

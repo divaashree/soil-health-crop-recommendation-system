@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if current_language == 'ta' %}உரம் அறிவுறுத்தல் - மண் ஆரோக்கியம்{% else %}Fertilizer Guide - Soil Health{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        <div class="farming-card">
+            <div class="card-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-tint me-2"></i>
+                    {% if current_language == 'ta' %}உரம் அறிவுறுத்தல் கையேடு{% else %}Fertilizer Recommendation Guide{% endif %}
+                </h4>
+                <p class="mb-0 small opacity-75">
+                    {% if current_language == 'ta' %}பொது உரம் பரிந்துரைகள்{% else %}General fertilizer recommendations{% endif %}
+                </p>
+            </div>
+            
+            <div class="card-body p-4">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {% if current_language == 'ta' %}
+                    உங்கள் மண்ணுக்கு ஏற்ற உரம் பரிந்துரைகளைப் பெற மண் பகுப்பாய்வு செய்யவும்
+                    {% else %}
+                    Perform soil analysis to get personalized fertilizer recommendations
+                    {% endif %}
+                </div>
+                
+                <div class="text-center mb-4">
+                    <a href="/soil-analysis" class="btn btn-green px-5">
+                        <i class="fas fa-flask me-2"></i>
+                        {% if current_language == 'ta' %}மண் பரிசோதனை செய்யவும்{% else %}Perform Soil Test{% endif %}
+                    </a>
+                </div>
+                
+                <!-- Fertilizer Types -->
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-success">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-atom me-2"></i>
+                                    {% if current_language == 'ta' %}நைட்ரஜன் உரங்கள்{% else %}Nitrogen Fertilizers{% endif %}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li><strong>Urea (46% N)</strong>: 100-150 kg/acre</li>
+                                    <li><strong>Ammonium Sulfate (21% N)</strong>: 200-300 kg/acre</li>
+                                    <li><strong>Calcium Ammonium Nitrate (26% N)</strong>: 150-200 kg/acre</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-warning">
+                            <div class="card-header bg-warning text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-fire me-2"></i>
+                                    {% if current_language == 'ta' %}பாஸ்பரஸ் உரங்கள்{% else %}Phosphorus Fertilizers{% endif %}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li><strong>DAP (18-46-0)</strong>: 50-75 kg/acre</li>
+                                    <li><strong>SSP (0-16-0)</strong>: 150-200 kg/acre</li>
+                                    <li><strong>Rock Phosphate</strong>: 200-300 kg/acre</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-info">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-bolt me-2"></i>
+                                    {% if current_language == 'ta' %}பொட்டாசியம் உரங்கள்{% else %}Potassium Fertilizers{% endif %}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li><strong>MOP (0-0-60)</strong>: 40-60 kg/acre</li>
+                                    <li><strong>SOP (0-0-50)</strong>: 50-75 kg/acre</li>
+                                    <li><strong>Potassium Nitrate</strong>: 30-50 kg/acre</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-primary">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-leaf me-2"></i>
+                                    {% if current_language == 'ta' %}கலவை உரங்கள்{% else %}Compound Fertilizers{% endif %}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li><strong>NPK 10:26:26</strong>: 100-150 kg/acre</li>
+                                    <li><strong>NPK 17:17:17</strong>: 75-100 kg/acre</li>
+                                    <li><strong>NPK 20:20:20</strong>: 50-75 kg/acre</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- General Advice -->
+                <div class="alert alert-success mt-4">
+                    <h5>
+                        <i class="fas fa-lightbulb me-2"></i>
+                        {% if current_language == 'ta' %}முக்கிய உரம் பயன்பாட்டு குறிப்புகள்{% else %}Important Fertilizer Application Tips{% endif %}
+                    </h5>
+                    <ul class="mb-0">
+                        {% if current_language == 'ta' %}
+                        <li>மண் பரிசோதனை செய்த பிறகே உரம் பயன்படுத்துங்கள்</li>
+                        <li>உரங்களை நெருக்கமாக வேருக்கு அருகே கொடுக்கவும்</li>
+                        <li>மழைக்காலத்தில் யூரியா பயன்படுத்தாதீர்கள்</li>
+                        <li>ஃபொலியர் எப்ளிகேஷன் சிறு பயிர்களுக்கு சிறந்தது</li>
+                        <li>கரிம உரங்களை முதன்மையாகப் பயன்படுத்துங்கள்</li>
+                        {% else %}
+                        <li>Always perform soil test before applying fertilizers</li>
+                        <li>Apply fertilizers close to the root zone</li>
+                        <li>Avoid urea application during rainy season</li>
+                        <li>Foliar application is best for small crops</li>
+                        <li>Prefer organic fertilizers whenever possible</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

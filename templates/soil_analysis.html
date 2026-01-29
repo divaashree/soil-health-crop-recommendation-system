@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if current_language == 'ta' %}மண் பரிசோதனை - மண் ஆரோக்கியம்{% else %}Soil Analysis - Soil Health{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="farming-card">
+            <div class="card-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-flask me-2"></i>
+                    {% if current_language == 'ta' %}மண் ஆரோக்கிய பகுப்பாய்வு{% else %}Soil Health Analysis{% endif %}
+                </h4>
+                <p class="mb-0 small opacity-75">
+                    {% if current_language == 'ta' %}உங்கள் மண் அளவுருக்களை உள்ளிடவும்{% else %}Enter your soil parameters{% endif %}
+                </p>
+            </div>
+            
+            <div class="card-body p-4">
+                <form id="soilAnalysisForm">
+                    <div class="row g-3">
+                        <!-- Nitrogen -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-atom text-danger me-1"></i>
+                                {% if current_language == 'ta' %}நைட்ரஜன் (N) - ppm{% else %}Nitrogen (N) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="nitrogen" 
+                                   placeholder="{% if current_language == 'ta' %}நைட்ரஜன் மதிப்பு{% else %}Nitrogen value{% endif %}" 
+                                   step="0.1" required>
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 45.2{% else %}Example: 45.2{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Phosphorus -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-fire text-warning me-1"></i>
+                                {% if current_language == 'ta' %}பாஸ்பரஸ் (P) - ppm{% else %}Phosphorus (P) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="phosphorus" 
+                                   placeholder="{% if current_language == 'ta' %}பாஸ்பரஸ் மதிப்பு{% else %}Phosphorus value{% endif %}" 
+                                   step="0.1" required>
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 32.8{% else %}Example: 32.8{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Potassium -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-bolt text-success me-1"></i>
+                                {% if current_language == 'ta' %}பொட்டாசியம் (K) - ppm{% else %}Potassium (K) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="potassium" 
+                                   placeholder="{% if current_language == 'ta' %}பொட்டாசியம் மதிப்பு{% else %}Potassium value{% endif %}" 
+                                   step="0.1" required>
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 78.5{% else %}Example: 78.5{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- pH Level -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-vial text-primary me-1"></i>
+                                {% if current_language == 'ta' %}pH அளவு{% else %}pH Level{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="ph" 
+                                   placeholder="{% if current_language == 'ta' %}pH மதிப்பு{% else %}pH value{% endif %}" 
+                                   step="0.1" required>
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 6.8{% else %}Example: 6.8{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Electrical Conductivity -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-bolt text-info me-1"></i>
+                                {% if current_language == 'ta' %}மின் கடத்துத்திறன் (EC){% else %}Electrical Conductivity (EC){% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="ec" 
+                                   placeholder="{% if current_language == 'ta' %}EC மதிப்பு{% else %}EC value{% endif %}" 
+                                   step="0.01">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 1.2{% else %}Example: 1.2{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Organic Carbon -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-tree text-brown me-1"></i>
+                                {% if current_language == 'ta' %}கரிம கார்பன் (%){% else %}Organic Carbon (%){% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="oc" 
+                                   placeholder="{% if current_language == 'ta' %}கரிம கார்பன் %{% else %}Organic carbon %{% endif %}" 
+                                   step="0.1">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 0.9{% else %}Example: 0.9{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Sulfur -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-cloud text-secondary me-1"></i>
+                                {% if current_language == 'ta' %}சல்பர் (S) - ppm{% else %}Sulfur (S) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="sulfur" 
+                                   placeholder="{% if current_language == 'ta' %}சல்பர் மதிப்பு{% else %}Sulfur value{% endif %}" 
+                                   step="0.1">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 15.4{% else %}Example: 15.4{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Zinc -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                {% if current_language == 'ta' %}துத்தநாகம் (Zn) - ppm{% else %}Zinc (Zn) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="zinc" 
+                                   placeholder="{% if current_language == 'ta' %}துத்தநாகம் மதிப்பு{% else %}Zinc value{% endif %}" 
+                                   step="0.01">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 0.8{% else %}Example: 0.8{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Iron -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-magnet text-danger me-1"></i>
+                                {% if current_language == 'ta' %}இரும்பு (Fe) - ppm{% else %}Iron (Fe) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="iron" 
+                                   placeholder="{% if current_language == 'ta' %}இரும்பு மதிப்பு{% else %}Iron value{% endif %}" 
+                                   step="0.1">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 6.7{% else %}Example: 6.7{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Copper -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-coins text-orange me-1"></i>
+                                {% if current_language == 'ta' %}செப்பு (Cu) - ppm{% else %}Copper (Cu) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="copper" 
+                                   placeholder="{% if current_language == 'ta' %}செப்பு மதிப்பு{% else %}Copper value{% endif %}" 
+                                   step="0.01">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 0.5{% else %}Example: 0.5{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Manganese -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-cog text-dark me-1"></i>
+                                {% if current_language == 'ta' %}மாங்கனீசு (Mn) - ppm{% else %}Manganese (Mn) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="manganese" 
+                                   placeholder="{% if current_language == 'ta' %}மாங்கனீசு மதிப்பு{% else %}Manganese value{% endif %}" 
+                                   step="0.1">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 4.2{% else %}Example: 4.2{% endif %}
+                            </small>
+                        </div>
+                        
+                        <!-- Boron -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-circle text-purple me-1"></i>
+                                {% if current_language == 'ta' %}போரான் (B) - ppm{% else %}Boron (B) - ppm{% endif %}
+                            </label>
+                            <input type="number" class="form-control" name="boron" 
+                                   placeholder="{% if current_language == 'ta' %}போரான் மதிப்பு{% else %}Boron value{% endif %}" 
+                                   step="0.01">
+                            <small class="text-muted">
+                                {% if current_language == 'ta' %}உதாரணம்: 0.9{% else %}Example: 0.9{% endif %}
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="d-flex justify-content-between">
+                            <a href="/" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-1"></i> 
+                                {% if current_language == 'ta' %}பின்வாடு{% else %}Back{% endif %}
+                            </a>
+                            <button type="submit" class="btn btn-green px-5" id="analyzeBtn">
+                                <i class="fas fa-chart-line me-2"></i> 
+                                {% if current_language == 'ta' %}மண்ணை பகுப்பாய்வு செய்{% else %}Analyze Soil{% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Loading Indicator -->
+                <div id="loadingIndicator" class="text-center mt-4" style="display: none;">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2 text-muted">
+                        {% if current_language == 'ta' %}மண்ணை பகுப்பாய்வு செய்கிறது...{% else %}Analyzing soil...{% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Guide -->
+        <div class="farming-card mt-4 p-4">
+            <h5 class="mb-3">
+                <i class="fas fa-info-circle text-primary me-2"></i>
+                {% if current_language == 'ta' %}விரைவு வழிகாட்டி{% else %}Quick Guide{% endif %}
+            </h5>
+            <ul class="list-unstyled small">
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    {% if current_language == 'ta' %}முதல் 4 புலங்கள் மட்டும் தேவையானவை{% else %}Only first 4 fields are required{% endif %}
+                </li>
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    {% if current_language == 'ta' %}மீதமுள்ளவை துல்லியத்தை மேம்படுத்துகின்றன{% else %}Remaining fields improve accuracy{% endif %}
+                </li>
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    {% if current_language == 'ta' %}மதிப்புகள் ppm அல்லது % இல் இருக்க வேண்டும்{% else %}Values should be in ppm or %{% endif %}
+                </li>
+                <li>
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    {% if current_language == 'ta' %}முடிவுகள் உடனடியாகக் காண்பிக்கப்படும்{% else %}Results will be displayed immediately{% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('soilAnalysisForm');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading
+        loadingIndicator.style.display = 'block';
+        analyzeBtn.disabled = true;
+        analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> {% if current_language == "ta" %}பகுப்பாய்வு செய்கிறது...{% else %}Analyzing...{% endif %}';
+        
+        // Collect form data
+        const formData = new FormData(form);
+        const data = {};
+        for (let [key, value] of formData.entries()) {
+            if (value) {
+                data[key] = parseFloat(value);
+            }
+        }
+        
+        try {
+            // Send to API
+            const response = await fetch('/api/predict/soil', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                // Redirect to results page
+                window.location.href = '/results';
+            } else {
+                alert(result.error || '{% if current_language == "ta" %}பிழை ஏற்பட்டது{% else %}Error occurred{% endif %}');
+                loadingIndicator.style.display = 'none';
+                analyzeBtn.disabled = false;
+                analyzeBtn.innerHTML = '<i class="fas fa-chart-line me-2"></i> {% if current_language == "ta" %}மண்ணை பகுப்பாய்வு செய்{% else %}Analyze Soil{% endif %}';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('{% if current_language == "ta" %}இணைப்பு பிழை{% else %}Connection error{% endif %}');
+            loadingIndicator.style.display = 'none';
+            analyzeBtn.disabled = false;
+            analyzeBtn.innerHTML = '<i class="fas fa-chart-line me-2"></i> {% if current_language == "ta" %}மண்ணை பகுப்பாய்வு செய்{% else %}Analyze Soil{% endif %}';
+        }
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Soil Health Analytics{% endblock %}</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-seedling text-success me-2"></i>
+                <span class="fw-bold">
+                    {% if current_language == 'ta' %}மண் ஆரோக்கியம்{% else %}Soil Health{% endif %}
+                </span>
+            </a>
+            
+            <!-- Language Toggle -->
+            <div class="language-toggle me-3">
+                {% if current_language == 'ta' %}
+                <button id="englishBtn" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-language me-1"></i>
+                    <span>English</span>
+                </button>
+                {% else %}
+                <button id="tamilBtn" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-language me-1"></i>
+                    <span>தமிழ்</span>
+                </button>
+                {% endif %}
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i> 
+                            <span>{% if current_language == 'ta' %}முகப்பு{% else %}Home{% endif %}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/soil-analysis">
+                            <i class="fas fa-flask me-1"></i> 
+                            <span>{% if current_language == 'ta' %}மண் பரிசோதனை{% else %}Soil Analysis{% endif %}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/crop-recommendation">
+                            <i class="fas fa-leaf me-1"></i> 
+                            <span>{% if current_language == 'ta' %}பயிர் பரிந்துரை{% else %}Crop Advice{% endif %}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/fertilizer-advice">
+                            <i class="fas fa-tint me-1"></i> 
+                            <span>{% if current_language == 'ta' %}உர வழிகாட்டி{% else %}Fertilizer Guide{% endif %}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            <i class="fas fa-info-circle me-1"></i> 
+                            <span>{% if current_language == 'ta' %}தகவல்{% else %}About{% endif %}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-dark py-4 mt-5 border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">
+                        <i class="fas fa-seedling text-success me-2"></i>
+                        <span>{% if current_language == 'ta' %}மண் ஆரோக்கியம்{% else %}Soil Health{% endif %}</span>
+                    </h5>
+                    <p class="text-muted small">
+                        {% if current_language == 'ta' %}
+                        தமிழ்நாடு விவசாயிகளுக்கான அறிவியல் மண் பகுப்பாய்வு. 
+                        அதிக உற்பத்தி, குறைந்த செலவு, நிலையான விவசாயம்.
+                        {% else %}
+                        Scientific soil analysis for Tamil Nadu farmers.
+                        Increase yield, reduce costs, sustainable farming.
+                        {% endif %}
+                    </p>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">{% if current_language == 'ta' %}விரைவு இணைப்புகள்{% else %}Quick Links{% endif %}</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-decoration-none text-muted">
+                            <i class="fas fa-home me-1"></i> {% if current_language == 'ta' %}முகப்பு{% else %}Home{% endif %}
+                        </a></li>
+                        <li><a href="/soil-analysis" class="text-decoration-none text-muted">
+                            <i class="fas fa-flask me-1"></i> {% if current_language == 'ta' %}மண் பரிசோதனை{% else %}Soil Test{% endif %}
+                        </a></li>
+                        <li><a href="/crop-recommendation" class="text-decoration-none text-muted">
+                            <i class="fas fa-leaf me-1"></i> {% if current_language == 'ta' %}பயிர் தேர்வு{% else %}Crop Selection{% endif %}
+                        </a></li>
+                        <li><a href="/fertilizer-advice" class="text-decoration-none text-muted">
+                            <i class="fas fa-tint me-1"></i> {% if current_language == 'ta' %}உர கணிப்பான்{% else %}Fertilizer Calculator{% endif %}
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">{% if current_language == 'ta' %}தொடர்பு{% else %}Contact{% endif %}</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> {% if current_language == 'ta' %}சென்னை, தமிழ்நாடு{% else %}Chennai, Tamil Nadu{% endif %}</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@soilhealth.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-3">
+            
+            <div class="text-center text-muted small">
+                <p>© 2026 {% if current_language == 'ta' %}மண் ஆரோக்கியம்{% else %}Soil Health Analytics{% endif %}. {% if current_language == 'ta' %}தமிழ்நாடு விவசாயிகளுக்காக{% else %}For Tamil Nadu Farmers{% endif %}.</p>
+                <p class="mb-0">
+                    <i class="fas fa-tractor text-success me-1"></i>
+                    <span>{% if current_language == 'ta' %}விவசாயிகளுக்காக அக்கறையுடன் கட்டப்பட்டது{% else %}Built with care for our farmers{% endif %}</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

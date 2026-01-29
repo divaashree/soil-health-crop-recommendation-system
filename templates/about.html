@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}About - Soil Health{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+
+        <!-- Hero Section -->
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold mb-3">
+                Soil Health
+            </h1>
+            <p class="lead text-muted mb-4">
+                AI-Powered Soil Health Analytics System for Farmers in Tamil Nadu
+            </p>
+            <div class="d-flex justify-content-center flex-wrap gap-3">
+                <span class="badge bg-success p-2">96.51% Soil Analysis Accuracy</span>
+                <span class="badge bg-success p-2">99% Crop Recommendation Accuracy</span>
+                <span class="badge bg-info p-2">AI-Driven Predictions</span>
+            </div>
+        </div>
+
+        <!-- Mission -->
+        <div class="farming-card p-4 mb-4">
+            <h3 class="mb-3">
+                <i class="fas fa-bullseye text-success me-2"></i>
+                Our Mission
+            </h3>
+            <p class="mb-0">
+                Our mission is to provide farmers in Tamil Nadu with free, 
+                science-based soil analysis and accurate crop recommendations.
+                By leveraging advanced AI technologies, we deliver reliable
+                insights in a simple and farmer-friendly manner.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-3">
+                <div class="feature-item p-3 border rounded h-100">
+                    <div class="feature-icon-small mb-3">
+                        <i class="fas fa-brain text-primary fa-2x"></i>
+                    </div>
+                    <h5>AI & Machine Learning</h5>
+                    <p class="small text-muted mb-0">
+                        Stacking Ensemble and Random Forest models trained on agricultural data
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="feature-item p-3 border rounded h-100">
+                    <div class="feature-icon-small mb-3">
+                        <i class="fas fa-tachometer-alt text-success fa-2x"></i>
+                    </div>
+                    <h5>High Accuracy</h5>
+                    <p class="small text-muted mb-0">
+                        96.51% accuracy for soil health and 99% for crop recommendations
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="feature-item p-3 border rounded h-100">
+                    <div class="feature-icon-small mb-3">
+                        <i class="fas fa-mobile-alt text-warning fa-2x"></i>
+                    </div>
+                    <h5>Easy to Use</h5>
+                    <p class="small text-muted mb-0">
+                        Simple interface in Tamil and English, accessible on all devices
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Models Info -->
+        <div class="farming-card p-4 mb-4">
+            <h3 class="mb-4">
+                <i class="fas fa-microchip text-info me-2"></i>
+                Models & Dataset
+            </h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="model-card p-3 border rounded mb-3">
+                        <h5 class="text-success">
+                            <i class="fas fa-flask me-2"></i>
+                            Soil Health Model
+                        </h5>
+                        <ul class="small mb-0">
+                            <li><strong>Model Type:</strong> Stacking Ensemble</li>
+                            <li><strong>Accuracy:</strong> 96.51%</li>
+                            <li><strong>Input Features:</strong> 11 soil parameters</li>
+                            <li><strong>Output Classes:</strong> 3 soil health levels</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="model-card p-3 border rounded mb-3">
+                        <h5 class="text-success">
+                            <i class="fas fa-leaf me-2"></i>
+                            Crop Recommendation Model
+                        </h5>
+                        <ul class="small mb-0">
+                            <li><strong>Model Type:</strong> Random Forest</li>
+                            <li><strong>Accuracy:</strong> 99%</li>
+                            <li><strong>Input Features:</strong> 7 parameters</li>
+                            <li><strong>Supported Crops:</strong> 22 crop varieties</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.feature-item {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.feature-icon-small {
+    width: 60px;
+    height: 60px;
+    background: rgba(46, 139, 87, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.model-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.model-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.contact-info div {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.contact-info div:last-child {
+    border-bottom: none;
+}
+</style>
+{% endblock %}

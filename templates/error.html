@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}{% if current_language == 'ta' %}பிழை{% else %}Error{% endif %}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 mx-auto text-center">
+        <div class="farming-card p-5">
+            <div class="error-icon mb-4">
+                <i class="fas fa-exclamation-triangle fa-5x text-warning"></i>
+            </div>
+            
+            <h1 class="display-4 fw-bold text-danger mb-3">
+                {{ error_code }}
+            </h1>
+            
+            <h4 class="mb-4">
+                {{ error_message }}
+            </h4>
+            
+            <p class="text-muted mb-4">
+                {% if current_language == 'ta' %}
+                தவறு ஏற்பட்டது. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.
+                {% else %}
+                An error occurred. Please try again.
+                {% endif %}
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="/" class="btn btn-green px-4">
+                    <i class="fas fa-home me-2"></i>
+                    {% if current_language == 'ta' %}முகப்பு{% else %}Home{% endif %}
+                </a>
+                <a href="javascript:history.back()" class="btn btn-outline-earth px-4">
+                    <i class="fas fa-arrow-left me-2"></i>
+                    {% if current_language == 'ta' %}பின்வாடு{% else %}Back{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

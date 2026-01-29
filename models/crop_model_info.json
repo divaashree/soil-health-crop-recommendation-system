@@ -1,0 +1,42 @@
+{
+  "model_type": "RandomForestClassifier",
+  "accuracy": 0.9931818181818182,
+  "n_estimators": 100,
+  "features": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "n_classes": 22,
+  "classes": [
+    "apple",
+    "banana",
+    "blackgram",
+    "chickpea",
+    "coconut",
+    "coffee",
+    "cotton",
+    "grapes",
+    "jute",
+    "kidneybeans",
+    "lentil",
+    "maize",
+    "mango",
+    "mothbeans",
+    "mungbean",
+    "muskmelon",
+    "orange",
+    "papaya",
+    "pigeonpeas",
+    "pomegranate",
+    "rice",
+    "watermelon"
+  ],
+  "created_date": "2026-01-08 12:28:26",
+  "model_path": "E:/SPACE INF/soil-health-project/models/crop_model.pkl",
+  "encoder_path": "E:/SPACE INF/soil-health-project/models/crop_label_encoder.pkl"
+}
