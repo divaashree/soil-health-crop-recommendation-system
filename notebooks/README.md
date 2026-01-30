@@ -1,19 +1,5 @@
-# 📓 Jupyter Notebooks
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.9+-blue.svg">
-  <img src="https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange.svg">
-  <img src="https://img.shields.io/badge/Jupyter-Notebook-F37626.svg">
-  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg">
-</p>
-
-This directory contains the **core experimental and modeling notebooks** used to build, validate, and persist machine learning models for the **Soil Health Assessment and Crop Recommendation System**.
-
-Each notebook follows a **structured, reproducible machine learning workflow**, making it suitable for research, evaluation, and real-world deployment.
-
----
-
-## 📁 Notebook Overview
+### 📁 Notebook Overview
 
 ### 1. `soil_health_analysis.ipynb`
 
