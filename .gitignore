@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Dependencies
+node_modules/
+venv/
+.env/
+__pycache__/
+
