@@ -50,7 +50,7 @@ A complete demonstration of the application workflow is available at:
 
 ## 🏗️ System Architecture
 
-![System Architecture](system_architecture.png)
+[System Architecture](system_architecture.png)
 
 ---
 
