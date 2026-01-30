@@ -1,16 +1,36 @@
-# OS files
+# ===== OS =====
 .DS_Store
 Thumbs.db
 
-# Logs
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+soil_env/
+venv/
+env/
+
+# ===== Logs =====
 *.log
 
-# Environment variables
+# ===== Environment variables =====
 .env
 
-# Dependencies
-node_modules/
-venv/
-.env/
-__pycache__/
+# ===== IDE =====
+.vscode/
+.idea/
+
+# ===== Build =====
+build/
+dist/
+
+# ===== ML / Data =====
+*.h5
+*.pkl
+
+# ===== Git LFS video (allowed) =====
+# (do NOT ignore mp4 because we push via LFS)
 
