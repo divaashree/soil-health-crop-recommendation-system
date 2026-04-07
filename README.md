@@ -1,4 +1,4 @@
-# 🌱 Soil Health Analytics System for Tamil Nadu
+# 🌱 Smart Agro System for Tamil Nadu
 
 An AI-powered system designed to **analyze soil health, recommend suitable crops, and provide fertilizer guidance** for farmers in Tamil Nadu.  
 This project integrates **machine learning, data analytics, and a Flask-based web application** to enable **data-driven and sustainable agricultural decisions**.
@@ -38,13 +38,13 @@ The **Soil Health Analytics System** assists farmers and agricultural stakeholde
 
 ---
 
-## 🎥 Project Demo
+## 🎥 Project Showcase
 
 A complete demonstration of the application workflow is available at:
 
-📁 **Demo Video**
+📁 **SHOWCASE**
 
-[demo video](demo_video.mp4)
+[demo](SHOWCASE.md)
 
 ---
 
