@@ -28,14 +28,7 @@ Enter soil parameters like N, P, K, pH, EC, and micronutrients.
 
 **Status:** Poor  
 **Confidence:** 84%
-
-✔ Use organic fertilizers  
-✔ Crop rotation  
-✔ Regular testing  
-
-✖ Avoid excess chemicals  
-✖ Monocropping  
-✖ Soil erosion  
+  
 
 ![Soil Result](./assets/soil_health_result.png)
 
@@ -43,11 +36,6 @@ Enter soil parameters like N, P, K, pH, EC, and micronutrients.
 
 ## 🌾 Crop Recommendation
 
-**Top Crop:** Rice (100%)
-
-Other options:
-- Watermelon (0%)
-- Pomegranate (0%)
 
 ![Crop Recommendation](./assets/crop_recommendation_result.png)
 
