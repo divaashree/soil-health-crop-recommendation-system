@@ -1,6 +1,6 @@
-# 🌱 Smart Agro System for Tamil Nadu
+# 🌱 Smart Agro System 
 
-An AI-powered system designed to **analyze soil health, recommend suitable crops, and provide fertilizer guidance** for farmers in Tamil Nadu.  
+An AI-powered system designed to **analyze soil health, recommend suitable crops, and provide fertilizer guidance** for farmers.  
 This project integrates **machine learning, data analytics, and a Flask-based web application** to enable **data-driven and sustainable agricultural decisions**.
 
 ---
